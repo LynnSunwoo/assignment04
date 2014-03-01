@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Styled Map</title>
+<title>Simple Map</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
     <style>
       html, body, #map-canvas {
@@ -11,21 +12,204 @@
         margin: 0px;
         padding: 0px
       }
+
+      .goback {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        min-width: 80px;
+        height: 80px;
+        background-color: #2D2D2B;
+      }
+      .goback a{ 
+        display: block;
+        font-family:'Montserrat', sans-serif; 
+        font-size: 1.5rem;
+        color: #F5C564;
+        text-align: center;
+        text-decoration: none;
+        background-color: #2D2D2B;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .goback a:hover {
+        background-color: #F5C564;color: #2D2D2B;
+      }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 var map;
 function initialize() {
   var mapOptions = {
-    
-	
-	
-	zoom: 5,
-	
-    center: new google.maps.LatLng(37.5705702,126.9766393)
+    zoom: 16,  
+    center: new google.maps.LatLng(21.2838487,-157.8302234),
+     mapTypeId: google.maps.MapTypeId.ROADMAP,
+     styles: [
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#161615"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2D2D2B"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#E86263"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#E86263"
+            },
+            {
+                "lightness": 0
+            },
+            {
+                "weight": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#47B9A8"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#47B9A8"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2D2D2B"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#161615"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    }
+]
   };
 map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
- 
  
 }
 
@@ -35,5 +219,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
     <div id="map-canvas"></div>
+    <div class="goback"><a class"linker" href="../index.html">Go<br>Back</a></div>
   </body>
 </html>
